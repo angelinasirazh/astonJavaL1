@@ -34,7 +34,8 @@ public class PuttingIntoPractice {
                 .forEach(System.out::println);
         split();
 
-        System.out.println("2. Вывести список неповторяющихся городов, в которых работают трейдеры.");
+        System.out.println("2. Вывести список неповторяющихся городов, в которых работают трейдеры." +
+                "(Список городов, в которых работает всего один трейдер)");
         transactions.stream()
                 .map(Transaction::getTrader)
                 .distinct()
@@ -43,6 +44,14 @@ public class PuttingIntoPractice {
                 .stream()
                 .filter(y -> y.getValue().size() == 1)
                 .map(Map.Entry::getKey)
+                .forEach(System.out::println);
+        split();
+
+        System.out.println("2. Вывести список неповторяющихся городов, в которых работают трейдеры." +
+                "(Список городов трейдеров без повторений)");
+        transactions.stream()
+                .map(t -> t.getTrader().getCity())
+                .distinct()
                 .forEach(System.out::println);
         split();
 
